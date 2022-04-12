@@ -1,0 +1,16 @@
+from newspaper import Article
+def crawl(url):
+    #url = 'http://fox13now.com/2013/12/30/new-year-new-laws-obamacare-pot-guns-and-drones/'
+    try:
+        #print(url)
+        article = Article(url)
+        #print(article)
+        article.download()
+        article.parse()
+        print([article.authors,article.publish_date, article.text, article.top_image, article.movies])
+        return [article.authors,article.publish_date, article.text, article.top_image, article.movies]
+    except: return [0,0,0,0]
+
+if __name__ == '__main__':
+    url = 'http://fox13now.com/2013/12/30/new-year-new-laws-obamacare-pot-guns-and-drones/'
+    crawl(url)
